@@ -1,15 +1,6 @@
 import React from "react";
+//import { v4 as uuidv4 } from "uuid";
 
-export default function Messages({ messages, member }) {
-  return (
-    <ul>
-      {messages.map((msg) => {
-        return (
-          <li key={msg.id + msg.clientId}>
-            {member}: {msg.data}
-          </li>
-        );
-      })}
-    </ul>
-  );
+export default function Messages({ messages }) {
+  return <ul></ul>;
 }
