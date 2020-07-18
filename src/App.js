@@ -172,14 +172,15 @@ export default class App extends Component {
     // ---------------SCALEDRONE end------------------- //
 
     // moj state:
-    this.state = {
-      messages: [],
-      member: {
-        username: randomName(),
-        color: randomColor(),
-      },
-    };
   }
+
+  state = {
+    messages: [],
+    member: {
+      username: randomName(),
+      color: randomColor(),
+    },
+  };
 
   // funkcija koja prima poruku i setira state na nove podatke:
   // handleSendMsg = (message) => {
@@ -198,7 +199,10 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Messages messages={this.state.messages} member={this.state.member} />
+        <Messages
+          messages={this.state.messages}
+          currentMember={this.state.member}
+        />
         <SendMsg onSendMsg={this.handleSendMsg} />
       </div>
     );

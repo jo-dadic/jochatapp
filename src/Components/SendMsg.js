@@ -5,7 +5,7 @@ export default class SendMsg extends Component {
     super(props);
 
     this.state = {
-      message: "",
+      text: "",
     };
   }
 
@@ -13,13 +13,13 @@ export default class SendMsg extends Component {
   sendMsg = (e) => {
     e.preventDefault(); // da sprječimo refreshanje aplikacije
 
-    this.props.onSendMsg(this.state.message);
-    this.setState({ message: "" });
+    this.props.onSendMsg(this.state.text);
+    this.setState({ text: "" });
   };
 
   // uzima utipkanu vrijednost poruke i setira state text na tu vrijednost
   handleTextChange = (e) => {
-    this.setState({ message: e.target.value });
+    this.setState({ text: e.target.value });
   };
 
   render() {
@@ -27,7 +27,7 @@ export default class SendMsg extends Component {
       <form onSubmit={this.sendMsg}>
         <input
           type="text"
-          value={this.state.message}
+          value={this.state.text}
           placeholder="Type your message here."
           onChange={this.handleTextChange}
         />
