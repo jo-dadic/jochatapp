@@ -3,6 +3,65 @@ import "./App.css";
 import SendMsg from "./Components/SendMsg";
 import Messages from "./Components/Messages";
 
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    //-------------SCALEDRONE-------------//
+    this.drone = new window.Scaledrone("EIK3OoxER8S0X40t", {
+      data: this.state.member,
+    });
+    this.drone.on("open", (error) => {
+      if (error) {
+        return console.error(error);
+      }
+      const member = { ...this.state.member };
+      member.id = this.drone.clientId;
+      this.setState({ member });
+    });
+
+    const room = this.drone.subscribe("observable-josipa");
+    room.on("data", (data, member) => {
+      const messages = this.state.messages;
+      messages.push({ member, text: data });
+      this.setState({ messages });
+    });
+
+    //-------------SCALEDRONE end-------------//
+  }
+
+  state = {
+    messages: [],
+    member: {
+      username: randomName(),
+      color: randomColor(),
+    },
+  };
+
+  handleSendMsg = (message) => {
+    this.drone.publish({
+      room: "observable-josipa",
+      message,
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <div className="header">
+          <h1>Josipa's Chat App</h1>
+        </div>
+        <Messages
+          messages={this.state.messages}
+          currentMember={this.state.member}
+        />
+        <SendMsg onSendMsg={this.handleSendMsg} />
+      </div>
+    );
+  }
+}
+
+//------------FOR RANDOM NAME AND COLOR-------------//
 function randomName() {
   const adjectives = [
     "autumn",
@@ -144,67 +203,4 @@ function randomName() {
 function randomColor() {
   return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
 }
-
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-
-    // ---------------SCALEDRONE----------------------- //
-    this.drone = new window.Scaledrone("EIK3OoxER8S0X40t", {
-      data: this.state.member,
-    });
-
-    this.drone.on("open", (error) => {
-      if (error) {
-        return console.error(error);
-      }
-      const member = { ...this.state.member };
-      member.id = this.drone.clientId;
-      this.setState({ member });
-    });
-
-    const room = this.drone.subscribe("observable-josipa");
-    room.on("data", (data, member) => {
-      const messages = this.state.messages;
-      messages.push({ member, text: data });
-      this.setState({ messages });
-    });
-    // ---------------SCALEDRONE end------------------- //
-
-    // moj state:
-  }
-
-  state = {
-    messages: [],
-    member: {
-      username: randomName(),
-      color: randomColor(),
-    },
-  };
-
-  // funkcija koja prima poruku i setira state na nove podatke:
-  // handleSendMsg = (message) => {
-  //   const messages = this.state.messages;
-  //   messages.push({ messages: message, member: this.state.member });
-  //   this.setState({ messages: messages });
-  // };
-
-  handleSendMsg = (message) => {
-    this.drone.publish({
-      room: "observable-josipa",
-      message,
-    });
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <Messages
-          messages={this.state.messages}
-          currentMember={this.state.member}
-        />
-        <SendMsg onSendMsg={this.handleSendMsg} />
-      </div>
-    );
-  }
-}
+//------------FOR RANDOM NAME AND COLOR end-------------//
