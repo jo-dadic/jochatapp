@@ -9,11 +9,12 @@
   border-radius: 10px;
   max-width: 900px;
   margin: 0 auto 40px;
+  background-color: #f0f8ff;
 }
 
 .avatar {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: inline-block;
   margin: 0 10px -10px;
@@ -43,7 +44,7 @@
   max-width: 400px;
   margin: 0;
   border-radius: 12px;
-  background-color: #00ffff;
+  background-color: #1e90ff;
   color: #00008b;
   font-size: 18px;
   font-weight: 600;
@@ -65,10 +66,10 @@
   background-color: #1e90ff;
   color: #00008b;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
   overflow: visible;
   padding: 8px;
-  margin: 0 auto 40px;
+  margin: 0 auto 30px;
 }
 
 form {

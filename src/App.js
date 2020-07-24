@@ -7,6 +7,14 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      messages: [],
+      member: {
+        username: randomName(),
+        color: randomColor(),
+      },
+    };
+
     //-------------SCALEDRONE-------------//
     this.drone = new window.Scaledrone("EIK3OoxER8S0X40t", {
       data: this.state.member,
@@ -29,14 +37,6 @@ export default class App extends Component {
 
     //-------------SCALEDRONE end-------------//
   }
-
-  state = {
-    messages: [],
-    member: {
-      username: randomName(),
-      color: randomColor(),
-    },
-  };
 
   handleSendMsg = (message) => {
     this.drone.publish({
