@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/jo-dadic/jochatapp/static/css/main.7d747a77.chunk.css",
+    "main.js": "/jo-dadic/jochatapp/static/js/main.13b26c71.chunk.js",
+    "main.js.map": "/jo-dadic/jochatapp/static/js/main.13b26c71.chunk.js.map",
+    "runtime-main.js": "/jo-dadic/jochatapp/static/js/runtime-main.9356c6ea.js",
+    "runtime-main.js.map": "/jo-dadic/jochatapp/static/js/runtime-main.9356c6ea.js.map",
+    "static/js/2.d3c8007b.chunk.js": "/jo-dadic/jochatapp/static/js/2.d3c8007b.chunk.js",
+    "static/js/2.d3c8007b.chunk.js.map": "/jo-dadic/jochatapp/static/js/2.d3c8007b.chunk.js.map",
+    "index.html": "/jo-dadic/jochatapp/index.html",
+    "precache-manifest.516b830f5acb19363e14cb9022759187.js": "/jo-dadic/jochatapp/precache-manifest.516b830f5acb19363e14cb9022759187.js",
+    "service-worker.js": "/jo-dadic/jochatapp/service-worker.js",
+    "static/css/main.7d747a77.chunk.css.map": "/jo-dadic/jochatapp/static/css/main.7d747a77.chunk.css.map",
+    "static/js/2.d3c8007b.chunk.js.LICENSE.txt": "/jo-dadic/jochatapp/static/js/2.d3c8007b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9356c6ea.js",
+    "static/js/2.d3c8007b.chunk.js",
+    "static/css/main.7d747a77.chunk.css",
+    "static/js/main.13b26c71.chunk.js"
+  ]
+}
