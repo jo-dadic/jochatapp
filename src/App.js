@@ -19,6 +19,7 @@ export default class App extends Component {
     this.drone = new window.Scaledrone("EIK3OoxER8S0X40t", {
       data: this.state.member,
     });
+
     this.drone.on("open", (error) => {
       if (error) {
         return console.error(error);
